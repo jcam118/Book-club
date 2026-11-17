@@ -196,6 +196,7 @@ footer .meta{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;
 .meet-tile{grid-column:span 2;background:var(--pink);border:3px solid var(--ink);border-radius:24px;padding:18px 20px;display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap}
 .meet-tile .n{font-family:var(--cond);font-size:96px;line-height:.8;text-transform:uppercase}
 .meet-tile .s{font-family:var(--serif);font-style:italic;font-size:22px}
+.meet-tile[aria-pressed="true"]{transform:translate(-3px,-3px);box-shadow:7px 7px 0 var(--ink)}
 
 .panel{padding-block:30px 70px}
 .ph{display:flex;align-items:flex-end;gap:16px;flex-wrap:wrap;margin-bottom:22px}
@@ -251,6 +252,45 @@ footer .meta{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;
 .goals .gt{font-weight:500}
 .goals .addline{grid-template-columns:minmax(0,1fr) 170px auto}
 
+/* check-ins */
+.plan-top{display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap;padding:18px 20px;border:3px solid var(--ink);border-radius:22px;background:var(--white);margin-bottom:22px}
+.plan-top .credit{font-family:var(--serif);font-size:22px;line-height:1.2}
+.plan-top .credit i{color:var(--tomato)}
+.plan-top .acts2{display:flex;gap:10px;flex-wrap:wrap;align-items:flex-end}
+.plan-top .tm{width:150px}
+.wk{border:3px solid var(--ink);border-radius:26px;margin-bottom:16px;overflow:hidden;background:var(--white)}
+.wk.next{box-shadow:8px 8px 0 var(--ink)}
+.wk-h{width:100%;display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:20px;align-items:center;padding:18px 22px;background:var(--wc);border:0;text-align:left;cursor:pointer;color:var(--ink)}
+.wk-h .no{font-family:var(--cond);font-size:88px;line-height:.8}
+.wk-h .dt{font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase}
+.wk-h .tt{font-family:var(--serif);font-size:clamp(24px,2.8vw,34px);line-height:1.05;margin-top:4px}
+.wk-h .tt i{font-size:.8em}
+.wk-h .rd{font-size:14px;margin-top:6px;font-weight:500}
+.wk-h .chip{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;background:var(--white);border:2px solid var(--ink);border-radius:999px;padding:5px 10px;white-space:nowrap}
+.wk-h .chip.hot{background:var(--ink);color:var(--white)}
+.wk.past .wk-h{opacity:.75}
+.wk-b{padding:22px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.5fr);gap:26px;border-top:3px solid var(--ink)}
+.wk-b h4{margin:0 0 8px;font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;font-weight:500}
+.wk-b ul{margin:0;padding-left:18px;display:grid;gap:8px}
+.side{display:grid;gap:14px;align-content:start}
+.blk{border:2.5px solid var(--ink);border-radius:18px;padding:14px 16px}
+.blk p{margin:0}
+.blk.angle{background:var(--pink)} .blk.try{background:var(--mint)}
+.tried{display:flex;gap:6px;flex-wrap:wrap;margin-top:12px}
+.tried button{display:inline-flex;align-items:center;gap:6px;border:2px solid var(--ink);border-radius:999px;background:var(--white);padding:3px 10px 3px 3px;font-size:13px;font-weight:700;cursor:pointer}
+.tried button[aria-pressed="true"]{background:var(--ink);color:var(--white)}
+.tried button .av{width:22px;height:22px;font-size:11px}
+.wk-q .q{grid-template-columns:70px minmax(0,1fr);padding-block:16px}
+.wk-q .q:first-child{border-top:0;padding-top:0}
+.wk-q .q .qn{font-size:46px}
+.wk-q .q .qt{font-size:21px}
+.wk-f{display:flex;gap:10px;flex-wrap:wrap;align-items:flex-end;padding:14px 22px;border-top:2px dashed var(--ink);background:var(--paper)}
+.wk-f .dd{width:170px}
+.further{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:14px;margin-top:26px}
+.further .fb{border:3px solid var(--ink);border-radius:20px;padding:16px;background:var(--butter);display:grid;gap:8px;align-content:start}
+.further .fb:nth-child(2){background:var(--lav)} .further .fb:nth-child(3){background:#FFB59E}
+.further .fb b{font-family:var(--cond);font-size:44px;font-weight:400;line-height:.85;text-transform:uppercase}
+.calbtn{font-size:13px}
 #toast{position:fixed;left:50%;bottom:calc(20px + env(safe-area-inset-bottom,0px));transform:translateX(-50%) translateY(160%);background:var(--ink);color:var(--white);padding:12px 20px;border-radius:14px;font-weight:700;transition:transform .25s;z-index:20;max-width:calc(100vw - 32px);border:2.5px solid var(--mustard)}
 #toast.show{transform:translateX(-50%) translateY(0)}
 
@@ -274,6 +314,11 @@ footer .meta{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;
   .bt .n{font-size:64px}
   .goals li{grid-template-columns:auto minmax(0,1fr) auto}
   .goals li .by{display:none}
+  .wk-b{grid-template-columns:1fr}
+  .wk-h{grid-template-columns:auto minmax(0,1fr);gap:14px;padding:16px}
+  .wk-h .no{font-size:64px}
+  .wk-h .chip{grid-column:1/-1;justify-self:start}
+  .wk-q .q{grid-template-columns:1fr}
   .q{grid-template-columns:1fr;gap:2px}
   .doodle{width:110px}
   .collage .sticker:nth-child(1){font-size:24px} .collage .sticker:nth-child(3){font-size:36px} .collage .sticker:nth-child(4){font-size:32px}
@@ -330,15 +375,20 @@ const PALETTES = [
 ];
 const POSES = ["Downward Dog-Ear","Child's Pose, with a paperback","Warrior II (chapters, not sets)","Corpse Pose: fell asleep reading","Happy Baby: finished the book","Tree Pose: still rooted on page 1","Lotus Position, fully annotated","Cobra: reading the last page first","Seated Twist: plot twist","Bridge Pose: between books"];
 const STATUS = {reading:"Reading now", next:"Up next", read:"Finished"};
+const CLUB_URL = "https://claude.ai/artifact/WrbRQvxpsBa1oiimGnYtyt";
+const COLS = ["books","notes","answers","goals","members"];
+const WK_BG = ["var(--butter)","var(--lav)","var(--mint)","var(--pink)","#FFB59E","var(--butter)"];
 const TABS = {
   questions:{cls:"t-q", lab:"Hot <i>Questions</i>", head:"Questions", sc:"talk it out", tc:"var(--tomato)", intro:"Answer before meetup night so the conversation starts warm. Everyone sees everyone's take."},
   activities:{cls:"t-a", lab:"Group <i>Activities</i>", head:"Activities", sc:"do the thing", tc:"var(--lav)", intro:"Things to do together, in person or in the group chat. Mark them off as you go."},
   notes:{cls:"t-n", lab:"Margin <i>Notes</i>", head:"Notes", sc:"the wall", tc:"var(--butter)", intro:"Quotes, highlights and hot takes. Each of you gets your own paper color."},
   goals:{cls:"t-g", lab:"Next <i>Goals</i>", head:"Goals", sc:"stay on the mat", tc:"var(--mint)", intro:"Split the book into chunks, give each a date, and set the meetup."},
+  plan:{cls:"t-p", lab:"", head:"Check-ins", sc:"week by week", tc:"var(--pink)", intro:"One Monday at a time. Answer the questions before each check-in, and try the experiment together."},
 };
 
-const S = { books:{}, notes:{}, answers:{}, goals:{} };
-let db = null, sample = null, mode = "loading", loaded = new Set();
+const S = { books:{}, notes:{}, answers:{}, goals:{}, members:{} };
+let db = null, sample = null, downloads = null, user = null, myId = null, mode = "loading", loaded = new Set();
+let openWk = null;
 let me = lsGet("uft-me") || "";
 let tab = lsGet("uft-tab") || "questions"; if(!TABS[tab]) tab="questions";
 let noteKind = "note";
@@ -369,6 +419,42 @@ function memberVar(who){ return who==="Jess"?"var(--jess)":who==="Mandy"?"var(--
 function pal(b){ return Array.isArray(b.colors)&&b.colors.length===4? b.colors : PALETTES[0]; }
 function colors(b){ const c=pal(b); return `--pa:${c[0]};--fa:${c[1]};--pb:${c[2]};--fb:${c[3]}`; }
 const checkSVG = `<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8.5l4 4 8-9" fill="none" stroke="currentColor" stroke-width="2.6"/></svg>`;
+
+/* ---------- calendar ---------- */
+function ymd(s){ return s.replace(/-/g,""); }
+function addDays(s,n){ const d=parseDay(s); d.setDate(d.getDate()+n); return d.getFullYear()+String(d.getMonth()+1).padStart(2,"0")+String(d.getDate()).padStart(2,"0"); }
+function timeParts(t){ if(!t) return null; const [h,m]=t.split(":").map(Number); const e=h*60+m+90; return {start:String(h).padStart(2,"0")+String(m).padStart(2,"0")+"00", end:String(Math.floor(e/60)%24).padStart(2,"0")+String(e%60).padStart(2,"0")+"00"}; }
+function gcal(ev){
+  const t=timeParts(ev.time);
+  const dates = t? `${ymd(ev.date)}T${t.start}/${ymd(ev.date)}T${t.end}` : `${ymd(ev.date)}/${addDays(ev.date,1)}`;
+  return "https://calendar.google.com/calendar/render?action=TEMPLATE&text="+encodeURIComponent(ev.title)+"&dates="+dates+"&details="+encodeURIComponent(ev.details+"\n\n"+CLUB_URL);
+}
+function icsEsc(s){ return String(s).replace(/\\/g,"\\\\").replace(/;/g,"\\;").replace(/,/g,"\\,").replace(/\n/g,"\\n"); }
+function ics(evs){
+  const now=new Date().toISOString().replace(/[-:]/g,"").replace(/\.\d+/,"");
+  const L=["BEGIN:VCALENDAR","VERSION:2.0","PRODID:-//Upward Facing Thots//Book Club//EN","CALSCALE:GREGORIAN","METHOD:PUBLISH"];
+  evs.forEach(ev=>{
+    const t=timeParts(ev.time);
+    L.push("BEGIN:VEVENT","UID:"+ev.uid+"@upward-facing-thots","DTSTAMP:"+now);
+    if(t) L.push("DTSTART:"+ymd(ev.date)+"T"+t.start,"DTEND:"+ymd(ev.date)+"T"+t.end);
+    else L.push("DTSTART;VALUE=DATE:"+ymd(ev.date),"DTEND;VALUE=DATE:"+addDays(ev.date,1));
+    L.push("SUMMARY:"+icsEsc(ev.title),"DESCRIPTION:"+icsEsc(ev.details+"\n\n"+CLUB_URL),"URL:"+CLUB_URL,
+      "BEGIN:VALARM","ACTION:DISPLAY","TRIGGER:-P1D","DESCRIPTION:"+icsEsc("Tomorrow: "+ev.title),"END:VALARM","END:VEVENT");
+  });
+  L.push("END:VCALENDAR");
+  return L.join("\r\n");
+}
+function wkEvent(b,w,i){
+  return {uid:`${b.id}-checkin-${i+1}`, date:w.date, time:b.meetTime||"", title:`Upward Facing Thots · Check-in ${i+1}: ${w.reading.split(" · ")[0]}`,
+    details:`${b.title}${b.meetPlace? "\nWhere: "+b.meetPlace:""}\nRead: ${w.reading}\nTry it this week: ${w.tryIt||""}`};
+}
+function goalEvent(g){ const b=S.books[g.bookId]; return {uid:`goal-${g.id}`, date:g.due, time:"", title:`Thots reminder: ${g.text}`, details:b? b.title : "Upward Facing Thots"}; }
+async function saveIcs(evs,name){
+  if(!downloads){ toast("Calendar files can't be saved here. Use the Google Calendar link."); return; }
+  try{ const r=await downloads.save({filename:name, data:ics(evs)}); if(r&&r.status==="saved") toast("Saved. Open the file to add it to your calendar."); }
+  catch(e){ if(e&&e.code!=="dismissed"&&e&&e.code!=="declined") toast("That calendar file didn't save. Try the Google Calendar link."); }
+}
+function nextWeek(b){ const ws=b.weeks||[]; for(let i=0;i<ws.length;i++){ if(daysUntil(ws[i].date)>=0) return {w:ws[i],i}; } return null; }
 
 function booksSorted(){ return Object.values(S.books).sort((a,b)=>(a.order||0)-(b.order||0)); }
 function current(){ const r=booksSorted().filter(b=>b.status==="reading"); return r[r.length-1] || null; }
@@ -423,12 +509,13 @@ async function boot(){
   try{ api = window.claude && window.claude.use ? await window.claude.use("db") : null; }catch(e){ api=null; }
   if(api){
     db = api; mode="shared";
-    const timer = setTimeout(()=>{ if(loaded.size<4) setBanner("Still reaching the shared shelf. What you see may be out of date."); },10000);
-    for(const col of ["books","notes","answers","goals"]){
+    const timer = setTimeout(()=>{ if(loaded.size<COLS.length) setBanner("Still reaching the shared shelf. What you see may be out of date."); },10000);
+    for(const col of COLS){
       db.collection(col).onSnapshot(snap=>{
         const o={}; snap.docs.forEach(d=>{ o[d.id]={...d.data(),id:d.id}; });
         S[col]=o; loaded.add(col);
-        if(!snap.metadata.fromCache && loaded.size===4){ clearTimeout(timer); setBanner(""); }
+        if(!snap.metadata.fromCache && loaded.size===COLS.length){ clearTimeout(timer); setBanner(""); }
+        if(col==="members") syncMe();
         render();
       }, err=>{ clearTimeout(timer); setBanner(err.code==="revoked"? "This shelf is no longer shared with you." : "The shared shelf stopped updating. Reload to reconnect."); });
     }
@@ -437,12 +524,35 @@ async function boot(){
     try{ const raw=lsGet("uft-local"); if(raw){ const o=JSON.parse(raw); for(const k of Object.keys(S)) S[k]=o[k]||{}; } }catch(e){}
     if(!Object.keys(S.books).length) seedLocal();
     setBanner("Saving on this device only. Open the shared link to read with Mandy and Beatriz.");
-    loaded = new Set(["books","notes","answers","goals"]);
+    loaded = new Set(COLS);
     render();
   }
   $("#mode").textContent = mode==="shared" ? "Synced for all three of you" : "Local copy";
   try{ sample = window.claude && window.claude.use ? await window.claude.use("sample") : null; }catch(e){ sample=null; }
-  render();
+  try{ downloads = window.claude && window.claude.use ? await window.claude.use("downloads") : null; }catch(e){ downloads=null; }
+  try{ user = window.claude && window.claude.use ? await window.claude.use("user") : null; myId = user? await user.id() : null; }catch(e){ myId=null; }
+  syncMe(); render();
+}
+/* Names are linked to claude.ai accounts: the first time you pick your name, it's claimed for your login. */
+function claimedBy(name){ const m=S.members[name]; return m && m.uid || null; }
+function syncMe(){
+  if(!myId) return;
+  const mine = MEMBERS.find(n=>claimedBy(n)===myId);
+  if(mine && mine!==me){ me=mine; lsSet("uft-me",me); renderMe(); }
+}
+async function pickMe(name){
+  if(db && myId){
+    const owner=claimedBy(name);
+    if(owner && owner!==myId){ toast(`${name} is already linked to another account.`); return; }
+    if(!owner){
+      const prev=MEMBERS.find(n=>claimedBy(n)===myId);
+      try{
+        if(prev) await store.del("members",prev);
+        await store.set("members",name,{uid:myId, at:Date.now()});
+      }catch(e){ safe(Promise.reject(e)); return; }
+    }
+  }
+  me=name; lsSet("uft-me",me); renderMe(); render(); toast(db&&myId? `Hi ${me}. This name is now linked to your login.` : `Hi ${me}.`);
 }
 function setBanner(t){ $("#banner").hidden=!t; $("#bannerText").textContent=t||""; }
 function seedLocal(){
@@ -455,7 +565,11 @@ function seedLocal(){
 function renderMe(){
   const el=$("#me");
   el.classList.toggle("ask", !me);
-  el.innerHTML = `<span class="mono">${me? "Reading as" : "Who's reading?"}</span>` + MEMBERS.map(m=>`<button class="chip-m" data-act="me" data-who="${m}" aria-pressed="${me===m}">${av(m)}${m}</button>`).join("");
+  const linked = myId && me && claimedBy(me)===myId;
+  el.innerHTML = `<span class="mono">${me? (linked? "Signed in as" : "Reading as") : "Who's reading?"}</span>` + MEMBERS.map(m=>{
+    const taken = myId && claimedBy(m) && claimedBy(m)!==myId;
+    return `<button class="chip-m" data-act="me" data-who="${m}" aria-pressed="${me===m}"${taken&&me!==m?' title="Linked to another account"':""}>${av(m)}${m}</button>`;
+  }).join("");
   $("#hey").innerHTML = `Hey, <i>${esc(me||"you")}</i>`;
 }
 function needMe(){ if(!me){ toast("Tap your name up top first."); $("#me").scrollIntoView({behavior:"smooth",block:"center"}); return true; } return false; }
@@ -466,7 +580,7 @@ function render(){
   const route=location.hash.slice(1);
   const v=$("#view");
   if(route.startsWith("book-") && S.books[route.slice(5)]) v.innerHTML = bookView(S.books[route.slice(5)]);
-  else if(route.startsWith("book-") && loaded.size<4) v.innerHTML = loadingView();
+  else if(route.startsWith("book-") && loaded.size<COLS.length) v.innerHTML = loadingView();
   else v.innerHTML = homeView();
   for(const id in drafts){ const el=document.getElementById(id); if(el && "value" in el) el.value=drafts[id]; }
   if(fid){ const el=document.getElementById(fid); if(el){ el.focus({preventScroll:true}); try{ if(ss!=null) el.setSelectionRange(ss,se); }catch(e){} } }
@@ -475,7 +589,7 @@ function loadingView(){ return `<div class="wrap" style="padding-block:60px"><p 
 
 function homeView(){
   const books=booksSorted(), cur=current();
-  if(mode==="loading" || (mode==="shared" && loaded.size<4 && !books.length)) return loadingView();
+  if(mode==="loading" || (mode==="shared" && loaded.size<COLS.length && !books.length)) return loadingView();
   return pillsRow(cur) + nowBand(cur) + shelfSec(books) + remindersSec();
 }
 function pillsRow(cur){
@@ -495,7 +609,12 @@ function nowBand(b){
   const n=daysUntil(b.meetDate);
   const meet = b.meetDate ? (n<0? "Done" : n===0? "Tonight" : n+" days") : "TBD";
   const meetSub = b.meetDate ? `${fmtDay(b.meetDate)}${b.meetPlace? " · "+esc(b.meetPlace):""}` : "Meetup date not set yet";
-  const answered = new Set(ans.map(a=>a.q)).size;
+  const answered = new Set(ans.map(a=>String(a.q))).size;
+  const totalQ = qs.length + (b.weeks||[]).reduce((n,w)=>n+(w.questions||[]).length,0);
+  const nw = nextWeek(b);
+  const meetTile = nw
+    ? `<div class="tile" style="background:var(--butter)"><span class="n">${(()=>{const d=daysUntil(nw.w.date); return d===0?"Today":d===1?"1 day":d+" days";})()}</span><span class="s">Check-in Nº${nw.i+1} · ${esc(fmtDay(nw.w.date))}<br>Read ${esc(nw.w.reading.split(" · ")[0])}</span></div>`
+    : `<div class="tile" style="background:var(--butter)"><span class="n">${esc(meet)}</span><span class="s">Meetup<br>${meetSub}</span></div>`;
   return `<section id="now" class="now" style="${colors(b)}"><div class="wrap">
     <a class="cv" href="#book-${esc(b.id)}" aria-label="Open ${esc(b.title)}">${cover(b)}</a>
     <div>
@@ -509,9 +628,9 @@ function nowBand(b){
       </div>
     </div>
     <div class="stack">
-      <div class="tile" style="background:var(--butter)"><span class="n">${esc(meet)}</span><span class="s">Meetup<br>${meetSub}</span></div>
+      ${meetTile}
       <div class="tile" style="background:var(--lav)"><span class="n">${doneN}/${goals.length}</span><span class="s">Reading goals done</span></div>
-      <div class="tile" style="background:var(--mint)"><span class="n">${answered}/${qs.length}</span><span class="s">Questions answered<br>${notes.length} note${notes.length===1?"":"s"} on the wall</span></div>
+      <div class="tile" style="background:var(--mint)"><span class="n">${answered}/${totalQ}</span><span class="s">Questions answered<br>${notes.length} note${notes.length===1?"":"s"} on the wall</span></div>
     </div>
   </div></section>`;
 }
@@ -571,7 +690,12 @@ function bookView(b){
   const n=daysUntil(b.meetDate);
   const cd=b.meetDate? (n<0?"Done":n===0?"Tonight":n===1?"Tomorrow":`${n} days`) : "TBD";
   const meter=MEMBERS.map(m=>`<div class="mrow"><span>${m}</span><span class="dots" style="--mc:${memberVar(m)}">${[1,2,3,4,5].map(k=>`<button class="dot${(r[m]||0)>=k?" on":""}" data-act="rate" data-n="${k}" data-who="${m}" ${me===m?"":"disabled"} aria-label="${m} rates ${k} of 5"></button>`).join("")}</span></div>`).join("");
+  if(tab==="plan" && !(b.weeks&&b.weeks.length)) tab="questions";
   const T=TABS[tab];
+  const nw=nextWeek(b);
+  const meetTile = (b.weeks&&b.weeks.length)
+    ? `<button class="meet-tile" data-act="tab" data-tab="plan" aria-pressed="${tab==="plan"}" style="text-align:left;cursor:pointer"><div><span class="mono">${nw? "Next check-in · Nº"+(nw.i+1) : "Check-ins"}</span><div class="n">${nw? (()=>{const d=daysUntil(nw.w.date); return d===0?"Today":d===1?"Tomorrow":d+" days";})() : "Done"}</div></div><div class="s">${nw? esc(fmtDay(nw.w.date))+" · "+esc(nw.w.reading.split(" · ")[0]) : "All six check-ins complete"}<br><b style="font-family:var(--sans);font-style:normal;font-size:15px">Open the weekly plan →</b></div></button>`
+    : `<button class="meet-tile" data-act="tab" data-tab="goals" style="text-align:left;cursor:pointer"><div><span class="mono">Next meetup</span><div class="n">${esc(cd)}</div></div><div class="s">${b.meetDate? esc(fmtDay(b.meetDate))+(b.meetPlace? " · "+esc(b.meetPlace):"") : "Set it under Goals →"}</div></button>`;
   return `<section class="bk-hero" style="${colors(b)}"><div class="wrap">
     <div class="backrow"><a class="back" href="#">← The Shelf</a></div>
     <div class="cv">${cover(b)}</div>
@@ -589,14 +713,14 @@ function bookView(b){
   </div></section>
   <div class="wrap">
     <div class="bento">
-      ${Object.keys(TABS).map(k=>`<button class="bt ${TABS[k].cls}" aria-pressed="${tab===k}" data-act="tab" data-tab="${k}">${ICONS[k]}<span class="bt-b"><span class="n">${counts[k]}</span><span class="lab">${TABS[k].lab}</span></span></button>`).join("")}
+      ${Object.keys(TABS).filter(k=>k!=="plan").map(k=>`<button class="bt ${TABS[k].cls}" aria-pressed="${tab===k}" data-act="tab" data-tab="${k}">${ICONS[k]}<span class="bt-b"><span class="n">${counts[k]}</span><span class="lab">${TABS[k].lab}</span></span></button>`).join("")}
       <div class="meter"><div><span class="mono">Thot-o-meter</span><div class="avg">${avg}<small>/5</small></div></div><div>${meter}<div class="mono" style="margin-top:8px;color:#cfc4bd">${me? "Tap the dots in your row to rate" : "Pick your name up top to rate"}</div></div></div>
-      <button class="meet-tile" data-act="tab" data-tab="goals" style="text-align:left;cursor:pointer"><div><span class="mono">Next meetup</span><div class="n">${esc(cd)}</div></div><div class="s">${b.meetDate? esc(fmtDay(b.meetDate))+(b.meetPlace? " · "+esc(b.meetPlace):"") : "Set it under Goals →"}</div></button>
+      ${meetTile}
     </div>
     <div class="panel" id="panel">
       <div class="ph" style="--tc:${T.tc}"><h2>${T.head}<span class="sc">${T.sc}</span></h2></div>
       <div class="ph" style="margin-top:-6px"><p>${T.intro}</p></div>
-      ${tab==="questions"?qPanel(b,qs):tab==="activities"?aPanel(b,acts):tab==="notes"?nPanel(b,notes):gPanel(b,goals)}
+      ${tab==="plan"?pPanel(b):tab==="questions"?qPanel(b,qs):tab==="activities"?aPanel(b,acts):tab==="notes"?nPanel(b,notes):gPanel(b,goals)}
     </div>
   </div>`;
 }
@@ -604,22 +728,67 @@ function buildBtn(b){
   if(!sample) return "";
   return building===b.id? `<button class="btn" disabled>Claude is building this world…</button>` : `<button class="btn solid" data-act="build" data-id="${esc(b.id)}">Have Claude build this world</button>`;
 }
-function qPanel(b,qs){
+function qItem(b,key,label,q){
   const ans=by("answers",b.id);
-  const list=qs.map((q,i)=>{
-    const mine=ans.find(a=>a.q===i && a.who===me);
-    const others=ans.filter(a=>a.q===i).sort((x,y)=>MEMBERS.indexOf(x.who)-MEMBERS.indexOf(y.who));
-    const tid=`ans-${b.id}-${i}`;
-    if(!(tid in drafts) && mine) drafts[tid]=mine.text;
-    return `<article class="q"><div class="qn">Q.${String(i+1).padStart(2,"0")}</div><div>
-      <p class="qt">${esc(q)}</p>
-      ${others.length? `<div class="answers">${others.map(a=>`<div class="ans">${av(a.who)}<p><span class="who">${esc(a.who)}:</span> ${esc(a.text)}</p></div>`).join("")}</div>`:""}
-      <form class="reply" data-form="answer" data-q="${i}"><label class="f" style="flex:1"><span>${me? `Your take, ${esc(me)}` : "Your take"}</span><textarea id="${esc(tid)}" rows="2" placeholder="Hot take, soft take, chaotic take…"></textarea></label><button class="btn small solid" type="submit">${mine?"Update":"Post"}</button></form>
-    </div></article>`;
-  }).join("");
-  return `${list || `<div class="empty"><h3>No questions yet</h3><p>Write your own below${sample?", or let Claude draft a set for this book":""}.</p>${buildBtn(b)}</div>`}
+  const mine=ans.find(a=>String(a.q)===String(key) && a.who===me);
+  const others=ans.filter(a=>String(a.q)===String(key)).sort((x,y)=>MEMBERS.indexOf(x.who)-MEMBERS.indexOf(y.who));
+  const tid=`ans-${b.id}-${key}`;
+  if(!(tid in drafts) && mine) drafts[tid]=mine.text;
+  return `<article class="q"><div class="qn">${label}</div><div>
+    <p class="qt">${esc(q)}</p>
+    ${others.length? `<div class="answers">${others.map(a=>`<div class="ans">${av(a.who)}<p><span class="who">${esc(a.who)}:</span> ${esc(a.text)}</p></div>`).join("")}</div>`:""}
+    <form class="reply" data-form="answer" data-q="${esc(key)}"><label class="f" style="flex:1"><span>${me? `Your take, ${esc(me)}` : "Your take"}</span><textarea id="${esc(tid)}" rows="2" placeholder="Hot take, soft take, chaotic take…"></textarea></label><button class="btn small solid" type="submit">${mine?"Update":"Post"}</button></form>
+  </div></article>`;
+}
+function qPanel(b,qs){
+  const list=qs.map((q,i)=>qItem(b,i,"Q."+String(i+1).padStart(2,"0"),q)).join("");
+  const hasPlan=b.weeks&&b.weeks.length;
+  return `${hasPlan? `<div class="empty" style="margin-bottom:20px;background:var(--pink)"><p style="margin:0;font-size:17px"><b>The check-in questions from ${esc(b.guideBy||"the guide")}'s guide live under <button class="linkbtn" data-act="tab" data-tab="plan">Check-ins</button>.</b> These are bonus thots for whenever the mood strikes.</p></div>`:""}
+    ${list || `<div class="empty"><h3>No questions yet</h3><p>Write your own below${sample?", or let Claude draft a set for this book":""}.</p>${buildBtn(b)}</div>`}
     <form class="addq" data-form="addQ"><label class="f" style="flex:1"><span>Add a question</span><input type="text" id="addq-${esc(b.id)}" placeholder="What I really want to ask the group is…"></label><button class="btn small" type="submit">Add</button></form>`;
 }
+function pPanel(b){
+  const ws=b.weeks||[], nw=nextWeek(b);
+  if(openWk===null) openWk = nw? nw.i : -1;
+  const cards=ws.map((w,i)=>{
+    const d=daysUntil(w.date), isNext=nw&&nw.i===i, past=d<0, open=openWk===i;
+    const chip = past? "Done" : d===0? "Today" : d===1? "Tomorrow" : `In ${d} days`;
+    const tried=(b.tried||{})[i]||{};
+    const ev=wkEvent(b,w,i);
+    return `<div class="wk${isNext?" next":""}${past?" past":""}" style="--wc:${WK_BG[i%WK_BG.length]}">
+      <button class="wk-h" data-act="wk" data-i="${i}" aria-expanded="${open}">
+        <span class="no">0${i+1}</span>
+        <span><span class="dt">${esc(fmtDay(w.date))}${b.meetTime? " · "+esc(fmtTime(b.meetTime)):""}${w.part? " · "+esc(w.part):""}</span><div class="tt">${esc(w.title)}</div><div class="rd">${esc(w.reading)}</div></span>
+        <span class="chip${isNext?" hot":""}">${isNext? "Up next · ":""}${chip} ${open?"−":"+"}</span>
+      </button>
+      ${open? `<div class="wk-b">
+        <div class="side">
+          ${(w.ideas||[]).length? `<div><h4>Key ideas to watch for</h4><ul>${w.ideas.map(x=>`<li>${esc(x)}</li>`).join("")}</ul></div>`:""}
+          ${w.angle? `<div class="blk angle"><h4>Dating &amp; anxiety angle</h4><p>${esc(w.angle)}</p></div>`:""}
+          ${w.tryIt? `<div class="blk try"><h4>Try it this week</h4><p>${esc(w.tryIt)}</p><div class="tried">${MEMBERS.map(m=>`<button data-act="tried" data-i="${i}" aria-pressed="${!!tried[m]}" ${me&&me!==m?"disabled":""}>${av(m)}${tried[m]? m+" did it" : m}</button>`).join("")}</div></div>`:""}
+        </div>
+        <div class="wk-q"><h4>Discussion questions · pick the ones that spark</h4>${(w.questions||[]).map((q,j)=>qItem(b,`w${i}-${j}`,`${i+1}.${j+1}`,q)).join("")}</div>
+      </div>
+      <div class="wk-f">
+        <a class="btn small calbtn" href="${esc(gcal(ev))}" target="_blank" rel="noopener">+ Google Calendar</a>
+        ${downloads? `<button class="btn small calbtn" data-act="icsOne" data-i="${i}">+ Apple / Outlook</button>`:""}
+        <label class="f dd" style="margin-left:auto"><span>Move this check-in</span><input type="date" id="wkd-${esc(b.id)}-${i}" value="${esc(w.date)}" data-change="wkDate" data-i="${i}"></label>
+      </div>`:""}
+    </div>`;
+  }).join("");
+  const fur=(b.further||[]).map((f,i)=>{ const has=Object.values(S.books).some(x=>x.title.toLowerCase()===f.title.toLowerCase());
+    return `<div class="fb"><b>${esc(f.title)}</b><span class="mono">${esc(f.author)}</span><span>${esc(f.why)}</span>${has? `<span class="mono">On the shelf ✓</span>` : `<button class="btn small" data-act="addFurther" data-i="${i}">+ Add as up next</button>`}</div>`; }).join("");
+  return `<div class="plan-top">
+      <div class="credit">Built from <i>${esc(b.guideBy||"the club")}'s</i> book club guide.<br><span style="font-size:16px;font-family:var(--sans)">${ws.length} Monday check-ins. Answer before each one, then try the experiment together.</span></div>
+      <div class="acts2">
+        <label class="f tm"><span>Check-in time</span><input type="time" id="meet-t-${esc(b.id)}" value="${esc(b.meetTime||"")}" data-change="meetTime"></label>
+        ${downloads? `<button class="btn solid" data-act="icsAll">Add all ${ws.length} to my calendar</button>`:""}
+      </div>
+    </div>
+    ${cards}
+    ${fur? `<div class="ph" style="margin-top:40px;--tc:var(--tomato)"><h2 style="font-size:clamp(60px,8vw,96px)">Go Further<span class="sc">from the guide</span></h2></div><p class="serif" style="font-style:italic;font-size:20px;margin:0">Ideas the book raises but doesn't resolve. Great picks for what's next on the shelf.</p><div class="further">${fur}</div>`:""}`;
+}
+function fmtTime(t){ const [h,m]=t.split(":").map(Number); return new Date(2000,0,1,h,m).toLocaleTimeString("en-US",{hour:"numeric",minute:"2-digit"}); }
 const ACT_BG = ["var(--lav)","var(--butter)","var(--pink)","var(--mint)","#FFB59E"];
 function aPanel(b,acts){
   const done=b.done||{};
@@ -652,7 +821,7 @@ function nPanel(b,notes){
 function gPanel(b,goals){
   goals=goals.sort((x,y)=> (x.done?1:0)-(y.done?1:0) || goalSort(x,y));
   const rows=goals.map(g=>`<li class="${g.done?"done":""}"><button class="check" role="checkbox" aria-checked="${!!g.done}" data-act="goal" data-id="${esc(g.id)}" aria-label="${g.done?"Mark not done":"Mark done"}">${checkSVG}</button>
-    <span class="gt">${esc(g.text)}</span><span class="by">${g.done&&g.doneBy? "done by "+esc(g.doneBy) : g.who? "from "+esc(g.who):""}</span><span style="display:flex;gap:10px;align-items:center">${g.done?"":dueChip(g.due)}<button class="linkbtn" data-act="delGoal" data-id="${esc(g.id)}" aria-label="Delete goal">×</button></span></li>`).join("");
+    <span class="gt">${esc(g.text)}</span><span class="by">${g.done&&g.doneBy? "done by "+esc(g.doneBy) : g.who? "from "+esc(g.who):""}</span><span style="display:flex;gap:10px;align-items:center">${g.done?"":dueChip(g.due)}${!g.done&&g.due? `<a class="linkbtn" href="${esc(gcal(goalEvent(g)))}" target="_blank" rel="noopener" title="Add to Google Calendar">+ Cal</a>${downloads?`<button class="linkbtn" data-act="icsGoal" data-id="${esc(g.id)}" title="Apple or Outlook calendar file">.ics</button>`:""}`:""}<button class="linkbtn" data-act="delGoal" data-id="${esc(g.id)}" aria-label="Delete goal">×</button></span></li>`).join("");
   return `<div class="meet">
       <label class="f"><span>Next meetup</span><input type="date" id="meet-d-${esc(b.id)}" value="${esc(b.meetDate||"")}" data-change="meetDate"></label>
       <label class="f"><span>Where</span><input type="text" id="meet-p-${esc(b.id)}" value="${esc(b.meetPlace||"")}" placeholder="Whose couch? Which wine bar?" data-change="meetPlace"></label></div>
@@ -683,7 +852,13 @@ document.addEventListener("click", e=>{
   const t=e.target.closest("[data-act]"); if(!t) return;
   const act=t.dataset.act, b=curBook();
   switch(act){
-    case "me": me=t.dataset.who; lsSet("uft-me",me); renderMe(); render(); toast(`Hi ${me}.`); break;
+    case "me": if(t.dataset.who!==me || !(myId && claimedBy(me)===myId)) pickMe(t.dataset.who); break;
+    case "wk": openWk = openWk===+t.dataset.i ? -1 : +t.dataset.i; render(); break;
+    case "tried": if(b){ if(needMe()) return; const i=t.dataset.i; const cur=((b.tried||{})[i]||{})[me]; safe(store.update("books",b.id,{tried:{[i]:{[me]: !cur}}})); } break;
+    case "icsAll": if(b) saveIcs((b.weeks||[]).map((w,i)=>wkEvent(b,w,i)), "upward-facing-thots-checkins.ics"); break;
+    case "icsOne": if(b){ const i=+t.dataset.i; saveIcs([wkEvent(b,b.weeks[i],i)], `thots-checkin-${i+1}.ics`); } break;
+    case "icsGoal": { const g=S.goals[t.dataset.id]; if(g&&g.due) saveIcs([goalEvent(g)], "thots-reminder.ics"); break; }
+    case "addFurther": { const f=(b&&b.further||[])[+t.dataset.i]; if(f) addBook(f.title,f.author,"next",false); break; }
     case "go": location.hash="book-"+t.dataset.id; break;
     case "jump": { const el=document.getElementById(t.dataset.to); if(el) el.scrollIntoView({behavior:"smooth"}); break; }
     case "openAdd": addOpen=true; if(location.hash) location.hash=""; render(); setTimeout(()=>{ const i=$("#nb-title"); if(i){ i.focus({preventScroll:true}); i.scrollIntoView({behavior:"smooth",block:"center"}); } },30); break;
@@ -708,6 +883,8 @@ document.addEventListener("change", e=>{
   if(k==="status") safe(store.update("books",b.id,{status:el.value}), `Marked ${STATUS[el.value].toLowerCase()}.`);
   if(k==="meetDate") safe(store.update("books",b.id,{meetDate:el.value||null}), el.value? "Meetup saved.":"Meetup cleared.");
   if(k==="meetPlace") safe(store.update("books",b.id,{meetPlace:el.value.trim()}), "Spot saved.");
+  if(k==="meetTime") safe(store.update("books",b.id,{meetTime:el.value||null}), el.value? "Check-in time saved." : "Time cleared.");
+  if(k==="wkDate" && el.value){ const ws=(b.weeks||[]).map(w=>({...w})); const i=+el.dataset.i; if(ws[i]){ ws[i].date=el.value; safe(store.update("books",b.id,{weeks:ws}), `Check-in ${i+1} moved to ${fmtDay(el.value)}.`); } }
 });
 function clearDraft(...ids){ ids.forEach(id=>{ delete drafts[id]; const el=document.getElementById(id); if(el) el.value=""; }); }
 
@@ -718,19 +895,15 @@ document.addEventListener("submit", async e=>{
     const title=$("#nb-title").value.trim(), author=$("#nb-author").value.trim(), status=$("#nb-status").value;
     if(!title||!author){ toast("Add a title and an author."); return; }
     const ai=$("#nb-ai")?.checked;
-    const id=slug(title), order=Math.max(0,...Object.values(S.books).map(x=>x.order||0))+1;
-    const book={title,author,status,order,colors:PALETTES[order%PALETTES.length],questions:[],activities:[],ratings:{},done:{},addedBy:me||null,at:Date.now()};
     addOpen=false; clearDraft("nb-title","nb-author");
-    try{ await store.set("books",id,book); }catch(err){ safe(Promise.reject(err)); return; }
-    location.hash="book-"+id; toast(`${title} is on the shelf.`);
-    if(ai && sample) buildWorld({...book,id});
+    addBook(title,author,status,ai,true);
     return;
   }
   if(!b) return;
   if(kind==="answer"){
     if(needMe()) return;
-    const i=+f.dataset.q, tid=`ans-${b.id}-${i}`, text=(document.getElementById(tid).value||"").trim();
-    const docId=`${b.id}--q${i}--${me}`;
+    const raw=f.dataset.q, i=/^\d+$/.test(raw)? +raw : raw, tid=`ans-${b.id}-${raw}`, text=(document.getElementById(tid).value||"").trim();
+    const docId=`${b.id}--q${raw}--${me}`;
     if(!text){ if(S.answers[docId]){ await safe(store.del("answers",docId),"Answer removed."); delete drafts[tid]; } return; }
     drafts[tid]=text;
     safe(store.set("answers",docId,{bookId:b.id,q:i,who:me,text,at:Date.now()}),"Posted.");
@@ -757,6 +930,14 @@ document.addEventListener("submit", async e=>{
   }
 });
 
+async function addBook(title,author,status,ai,go){
+  const id=slug(title), order=Math.max(0,...Object.values(S.books).map(x=>x.order||0))+1;
+  const book={title,author,status,order,colors:PALETTES[order%PALETTES.length],questions:[],activities:[],ratings:{},done:{},addedBy:me||null,at:Date.now()};
+  try{ await store.set("books",id,book); }catch(err){ safe(Promise.reject(err)); return; }
+  if(go) location.hash="book-"+id;
+  toast(`${title} is on the shelf${status==="next"?" as up next":""}.`);
+  if(ai && sample) buildWorld({...book,id});
+}
 async function buildWorld(b){
   if(!sample||building) return;
   building=b.id; render();

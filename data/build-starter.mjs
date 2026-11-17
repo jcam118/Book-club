@@ -1,5 +1,6 @@
 // Builds starter.js (offline fallback) and seed-batch.json (shared database seed) from one source.
-import { writeFileSync } from "node:fs";
+import { writeFileSync, readFileSync } from "node:fs";
+const guide = JSON.parse(readFileSync(new URL("./mars-guide.json", import.meta.url)));
 const books = [
  { id:"little-bee", title:"Little Bee", author:"Chris Cleave", status:"read", order:1,
    colors:["#FFC400","#141014","#141014","#FFC400"],
@@ -59,15 +60,10 @@ const books = [
     {title:"The love letter technique",desc:"Try the book's love-letter format on someone: a partner, a friend, or yourself. Sharing is optional."},
     {title:"Score points week",desc:"Do five small 'scoring points' gestures for someone this week and report the results."},
     {title:"Recast it",desc:"Assign the book's archetypes to characters from a show all three of us watch. Defend your casting."}
-   ], ratings:{}, done:{} }
+   ], ratings:{}, done:{}, ...guide }
 ];
-const goals = [
- ["Read Ch 1–3: Mars & Venus, Mr. Fix-It, men go to their caves"],
- ["Read Ch 4–7: motivation, different languages, rubber bands and waves"],
- ["Read Ch 8–10: emotional needs, avoiding arguments, scoring points"],
- ["Read Ch 11–13: difficult feelings, asking for support, keeping the magic"],
- ["Pick a date and spot for discussion night"]
-].map(([text],i)=>({id:"mars-goal-"+(i+1), bookId:"mars-venus", text, due:null, done:false, who:null, at:1763337600000+i}));
+const goals = guide.weeks.map((w,i)=>({id:"mars-goal-"+(i+1), bookId:"mars-venus", text:`Check-in ${i+1}: read ${w.reading.split(" · ")[0].replace("Chapter ","Ch ").replace("Chapters ","Ch ")}${i===0?" (start small!)":""}`, due:w.date, done:false, who:"Mandy's guide", at:1763337600000+i}));
+goals.push({id:"mars-goal-7", bookId:"mars-venus", text:"Pick a date for the first check-in", due:null, done:true, doneBy:"Jess", who:null, at:1763337600010});
 writeFileSync(new URL("../starter.js", import.meta.url),
  "/* Starter shelf for the offline copy (opening index.html directly). The shared app loads from its database instead. */\n" +
  "window.UFT_STARTER = " + JSON.stringify(books, null, 1) + ";\nwindow.UFT_STARTER_GOALS = " + JSON.stringify(goals, null, 1) + ";\n");
