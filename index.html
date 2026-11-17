@@ -1,4 +1,4 @@
-<title>Upward Facing Thots</title>
+<title>Thots &amp; Noble</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -65,8 +65,13 @@ label.f>span{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-tra
 .hero-top{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
 .hey{font-family:var(--serif);font-size:clamp(30px,4vw,46px);line-height:1;margin-top:18px}
 .mega{position:relative;margin-top:4px;padding-bottom:.1em}
-.mega .uf{display:block;font-family:var(--cond);text-transform:uppercase;font-size:min(27vw,340px);line-height:.8;letter-spacing:.005em;white-space:nowrap}
-.mega .thots{position:absolute;right:1%;bottom:-.42em;font-family:var(--script);color:var(--tomato);font-size:min(22vw,250px);line-height:1;transform:rotate(-9deg);text-shadow:3px 3px 0 var(--ink);pointer-events:none}
+.mega .uf{display:flex;align-items:baseline;gap:.04em;font-family:var(--cond);text-transform:uppercase;font-size:min(30vw,372px);line-height:.8;letter-spacing:.005em;white-space:nowrap}
+.mega .amp{font-family:var(--script);text-transform:none;color:var(--tomato);font-size:.62em;line-height:.6;text-shadow:3px 3px 0 var(--ink);transform:translateY(-.08em) rotate(-6deg);padding:0 .06em}
+.plate{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-top:14px;border-block:3px solid var(--ink);padding-block:10px}
+.plate .mono{font-size:13px;letter-spacing:.22em}
+.plate i{font-size:24px;line-height:1}
+.plate .star{font-family:var(--cond);font-size:28px;line-height:1}
+.open-sign{margin-left:auto;font-family:var(--script);background:var(--pink);border:2.5px solid var(--ink);box-shadow:3px 3px 0 var(--ink);padding:2px 16px 6px;font-size:34px;line-height:1;transform:rotate(-4deg);white-space:nowrap}
 .hero-row{display:flex;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap;margin-top:34px}
 .collage{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
 .collage .sticker:nth-child(1){background:var(--lav);font-family:var(--serif);font-style:italic;font-size:30px;transform:rotate(-6deg)}
@@ -331,9 +336,10 @@ footer .meta{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;
 
 <header class="hero">
   <div class="wrap">
-    <div class="hero-top mono"><span>Est. in the group chat · 3 members · 0 stretches</span><span id="today"></span></div>
+    <div class="hero-top mono"><span>Est. in the group chat · 3 booksellers · 0 returns</span><span id="today"></span></div>
     <div class="hey" id="hey">Hey, <i>you</i></div>
-    <h1 class="mega" aria-label="Upward Facing Thots book club"><span class="uf">Upward Facing</span><span class="thots" aria-hidden="true">Thots</span></h1>
+    <h1 class="mega" aria-label="Thots and Noble"><span class="uf">Thots<span class="amp" aria-hidden="true">&amp;</span>Noble</span></h1>
+    <div class="plate"><span class="mono">Booksellers since the group chat</span><span class="star" aria-hidden="true">✺</span><i>an Upward Facing Thots establishment</i><span class="open-sign">now open, emotionally</span></div>
     <div class="hero-row">
       <div class="collage" aria-hidden="true">
         <svg class="doodle" viewBox="0 0 150 100" fill="none" stroke="#151012" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
@@ -346,7 +352,7 @@ footer .meta{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;
           <path d="M126 8 l4 -5 M134 14 l6 -3 M131 24 l7 0"/>
           <path d="M12 80 l-4 -6"/>
         </svg>
-        <span class="sticker">read</span><span class="sticker">gossip</span><span class="sticker">annotate</span><span class="sticker">repeat</span>
+        <span class="sticker">staff picks</span><span class="sticker">no returns</span><span class="sticker">hot takes</span><span class="sticker">namaste</span>
       </div>
       <div class="me" id="me" role="group" aria-label="Who's reading?"></div>
     </div>
@@ -357,7 +363,7 @@ footer .meta{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;
 
 <footer>
   <div class="ticker" aria-hidden="true"><div class="track" id="track"></div></div>
-  <div class="wrap meta mono"><span>Upward Facing Thots · Jess, Mandy &amp; Beatriz</span><span id="mode"></span></div>
+  <div class="wrap meta mono"><span>Thots &amp; Noble · an Upward Facing Thots establishment · Jess, Mandy &amp; Beatriz</span><span id="mode"></span></div>
 </footer>
 <div id="toast" role="status"></div>
 <script src="starter.js"></script>
@@ -501,7 +507,7 @@ async function safe(p, ok){
 async function boot(){
   $("#today").textContent = new Date().toLocaleDateString("en-US",{weekday:"long",month:"long",day:"numeric"});
   const day = Math.floor(Date.now()/86400000);
-  const bits = ["Namaste &amp; annotate","<i>read</i>","Gossip","<i>repeat</i>","Today's pose: "+POSES[day % POSES.length],"<i>no stretching required</i>"];
+  const bits = ["Thots &amp; Noble","<i>booksellers since the group chat</i>","No returns","<i>hot takes daily</i>","Today's pose: "+POSES[day % POSES.length],"<i>namaste &amp; annotate</i>"];
   const run = bits.map(b=>`<span>${b} ✺</span>`).join("");
   $("#track").innerHTML = run + run;
   renderMe(); render();
@@ -595,7 +601,7 @@ function homeView(){
 function pillsRow(cur){
   return `<div class="wrap"><nav class="pills" aria-label="Jump to">
     ${cur? `<a class="pill" href="#book-${esc(cur.id)}"><span class="ar">↳</span> Enter <i>the book</i></a>`:`<button class="pill" data-act="jump" data-to="now"><span class="ar">↳</span> Now <i>Reading</i></button>`}
-    <button class="pill" data-act="jump" data-to="shelf"><span class="ar">↳</span> The <i>Shelf</i></button>
+    <button class="pill" data-act="jump" data-to="shelf"><span class="ar">↳</span> Browse <i>the Stacks</i></button>
     <button class="pill" data-act="jump" data-to="mat"><span class="ar">↳</span> On <i>the Mat</i></button>
     <button class="pill" data-act="openAdd"><span class="ar">↳</span> Add <i>a Book</i></button>
   </nav></div>`;
@@ -648,12 +654,12 @@ function shelfSec(books){
       <span class="sa">${esc(b.author)}</span><span class="st" style="font-size:${fs}px">${esc(b.title)}</span>${v==="caps"?`<span class="no">0${i+1}</span>`:`<span class="tag">${b.status==="reading"?"NOW":b.status==="next"?"NEXT":"READ"}</span>`}</button>`;
   }).join("");
   return `<section id="shelf" class="band shelf-band"><div class="wrap">
-    <div class="head"><h2>The Shelf<span class="sc">getting full</span></h2><span class="mono">${books.length} book${books.length===1?"":"s"} · ${read} finished</span></div>
+    <div class="head"><h2>The Stacks<span class="sc">staff picks</span></h2><span class="mono">${books.length} book${books.length===1?"":"s"} · ${read} finished</span></div>
     <div class="shelf">${spines}
       <button class="flat" data-act="openAdd">+ Add a book</button>${PLANT}
     </div>
     <div class="plank"></div>
-    <div class="legend mono"><span>Tap a spine to enter its world</span><span>Now = reading</span><span>Next = up next</span><span>Read = finished</span></div>
+    <div class="legend mono"><span>Tap a spine to enter its aisle</span><span>Now = reading</span><span>Next = up next</span><span>Read = finished</span></div>
     ${addOpen? addForm():""}
   </div></section>`;
 }
@@ -697,7 +703,7 @@ function bookView(b){
     ? `<button class="meet-tile" data-act="tab" data-tab="plan" aria-pressed="${tab==="plan"}" style="text-align:left;cursor:pointer"><div><span class="mono">${nw? "Next check-in · Nº"+(nw.i+1) : "Check-ins"}</span><div class="n">${nw? (()=>{const d=daysUntil(nw.w.date); return d===0?"Today":d===1?"Tomorrow":d+" days";})() : "Done"}</div></div><div class="s">${nw? esc(fmtDay(nw.w.date))+" · "+esc(nw.w.reading.split(" · ")[0]) : "All six check-ins complete"}<br><b style="font-family:var(--sans);font-style:normal;font-size:15px">Open the weekly plan →</b></div></button>`
     : `<button class="meet-tile" data-act="tab" data-tab="goals" style="text-align:left;cursor:pointer"><div><span class="mono">Next meetup</span><div class="n">${esc(cd)}</div></div><div class="s">${b.meetDate? esc(fmtDay(b.meetDate))+(b.meetPlace? " · "+esc(b.meetPlace):"") : "Set it under Goals →"}</div></button>`;
   return `<section class="bk-hero" style="${colors(b)}"><div class="wrap">
-    <div class="backrow"><a class="back" href="#">← The Shelf</a></div>
+    <div class="backrow"><a class="back" href="#">← The Stacks</a></div>
     <div class="cv">${cover(b)}</div>
     <div>
       <span class="mono">Book Nº ${bookNo(b)} · ${esc(STATUS[b.status]||"")}</span>
@@ -836,15 +842,21 @@ function gPanel(b,goals){
 function curBook(){ const r=location.hash.slice(1); return r.startsWith("book-")? S.books[r.slice(5)] : null; }
 function chatText(b){
   const open=by("goals",b.id).filter(g=>!g.done).sort(goalSort)[0];
-  const lines=[`UPWARD FACING THOTS 🧘‍♀️📚`, `${b.status==="read"?"We read":"Now reading"}: ${b.title} by ${b.author}`];
-  if(open) lines.push(`Next goal: ${open.text}${open.due? " (by "+fmtDay(open.due)+")":""}`);
-  if(b.meetDate) lines.push(`Meetup: ${fmtDay(b.meetDate)}${b.meetPlace? " · "+b.meetPlace:""}`);
-  const qs=b.questions||[]; if(qs.length) lines.push(`Think about: ${qs[Math.floor(Math.random()*qs.length)]}`);
-  lines.push("Namaste & annotate.");
-  return lines.join("\n");
+  const nw=nextWeek(b);
+  const ans=by("answers",b.id).length, notes=by("notes",b.id).length;
+  const L=["🧾 THOTS & NOBLE","Booksellers since the group chat","------------------------------",
+    `${b.status==="read"?"SOLD":"NOW READING"}: ${b.title}`,`by ${b.author}`];
+  if(nw) L.push(`1x Check-in ${nw.i+1} · ${fmtDay(nw.w.date)}${b.meetTime? " "+fmtTime(b.meetTime):""}${b.meetPlace? " · "+b.meetPlace:""}`,`1x Reading: ${nw.w.reading.split(" · ")[0]}`);
+  else if(b.meetDate) L.push(`1x Meetup · ${fmtDay(b.meetDate)}${b.meetPlace? " · "+b.meetPlace:""}`);
+  if(open) L.push(`1x Next goal: ${open.text}${open.due? " (by "+fmtDay(open.due)+")":""}`);
+  L.push(`${ans}x hot takes · ${notes}x margin notes · 0x stretching`);
+  const qs = nw? (nw.w.questions||[]) : (b.questions||[]);
+  if(qs.length) L.push("------------------------------",`Think about: ${qs[Math.floor(Math.random()*qs.length)]}`);
+  L.push("------------------------------","TOTAL: priceless","No returns. Namaste & annotate.");
+  return L.join("\n");
 }
 async function copy(text){
-  try{ await navigator.clipboard.writeText(text); toast("Copied. Paste it in the group chat."); }
+  try{ await navigator.clipboard.writeText(text); toast("Receipt copied. Paste it in the group chat."); }
   catch(e){ toast("Copy didn't work here. Select the text and copy it."); }
 }
 
@@ -941,7 +953,7 @@ async function addBook(title,author,status,ai,go){
 async function buildWorld(b){
   if(!sample||building) return;
   building=b.id; render();
-  const prompt=`You are designing a discussion kit for "Upward Facing Thots", a book club of three close friends (Jess, Mandy and Beatriz) named after their group chat. Tone: warm, playful, a little cheeky, but the questions should be genuinely thought-provoking.
+  const prompt=`You are designing a discussion kit for "Thots & Noble", the cheeky bookstore-themed home of "Upward Facing Thots", a book club of three close friends (Jess, Mandy and Beatriz) named after their group chat. Tone: warm, playful, a little cheeky, but the questions should be genuinely thought-provoking.
 
 Book: "${b.title}" by ${b.author}.
 

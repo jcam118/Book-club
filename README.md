@@ -1,6 +1,6 @@
-# Upward Facing Thots — Book Club
+# Thots & Noble
 
-A book club app for Jess, Mandy & Beatriz, named after the group chat.
+Booksellers since the group chat. The book club app for Jess, Mandy & Beatriz — an Upward Facing Thots establishment.
 
 - **The Shelf** — every book we've read, as spines on a shelf (Little Bee → Many Lives, Many Masters → Men Are from Mars, Women Are from Venus).
 - **A world per book** — its own colors, plus tabs for discussion **Questions** (everyone posts their take), **Activities**, a **Notes** wall (notes, quotes, hot takes, page numbers), and **Goals & reminders** with due dates and the next meetup.
